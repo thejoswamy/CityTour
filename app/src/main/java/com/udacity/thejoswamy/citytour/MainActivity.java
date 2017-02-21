@@ -12,10 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static android.R.attr.id;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String DRAWER_POSITION = "position";
+
     private DrawerLayout mDrawer;
+    private int mDrawerSelectedItemId = R.id.nav_must_visit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        selectDrawerItem(navigationView.getMenu().getItem(0));
+        if (savedInstanceState != null) {
+            mDrawerSelectedItemId = savedInstanceState.getInt(DRAWER_POSITION);
+        }
+        selectDrawerItem(navigationView.getMenu().findItem(mDrawerSelectedItemId));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(DRAWER_POSITION, mDrawerSelectedItemId);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -74,17 +88,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void selectDrawerItem(MenuItem item) {
-
         Fragment fragment = null;
-        int id = item.getItemId();
+        mDrawerSelectedItemId = item.getItemId();
 
-        if (id == R.id.nav_must_visit) {
+        if (mDrawerSelectedItemId == R.id.nav_must_visit) {
             fragment = new MustVisitFragment();
-        } else if (id == R.id.nav_local_malls) {
+        } else if (mDrawerSelectedItemId == R.id.nav_local_malls) {
             fragment = new ShoppingFragment();
-        } else if (id == R.id.nav_local_dining) {
+        } else if (mDrawerSelectedItemId == R.id.nav_local_dining) {
             fragment = new RestaurantsFragment();
-        } else if (id == R.id.nav_local_bar) {
+        } else if (mDrawerSelectedItemId == R.id.nav_local_bar) {
             fragment = new NightLifeFragment();
         }
 
