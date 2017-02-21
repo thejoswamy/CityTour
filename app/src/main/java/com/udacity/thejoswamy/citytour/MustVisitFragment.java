@@ -28,17 +28,16 @@ public class MustVisitFragment extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.places_list_layout, container, false);
 
         ArrayList<Place> places = new ArrayList<>();
-        places.add(new Place("Lalbagh Botanical Garden", "Open: 6AM–6PM", "Mavalli, Bengaluru", R.mipmap.l_image));
-        places.add(new Place("Bangalore Palace", "Open: 10:30AM–5:30PM", "Vasanth Nagar, Bengaluru", R.mipmap.b_image));
-        places.add(new Place("Cubbon Park", "Open: 24 hours", "Sampangi Rama Nagar, Bengaluru", R.mipmap.c_image));
-        places.add(new Place("Visvesvaraya Industrial & Technological Museum", "Open: 10AM–6PM", "Sampangi Rama Nagar, Bengaluru", R.mipmap.v_image));
-        places.add(new Place("ISKCON Bangalore", "Open: 24 hours", "Rajaji Nagar, Bengaluru", R.mipmap.i_image));
-        places.add(new Place("Snow City", "Open: 10AM–8PM", "J C Nagar, Bengaluru", R.mipmap.s_display));
-        places.add(new Place("Bull Temple", "Open: 6AM–6PM", "Basavanagudi", R.mipmap.b_image));
-        places.add(new Place("St. Mary's Basilica", "Open: 6AM–6PM", "Shivaji Nagar", R.mipmap.s_display));
-        places.add(new Place("Bannerghatta National Park", "Open: 9:30AM–4:30PM", "Bannerghatta Road", R.mipmap.b_image));
-        places.add(new Place("Wonderla", "Open: 11AM–6PM", "Mysore Road, Bangalore", R.mipmap.w_image));
-        places.add(new Place("Nandi Temple", "Open: 6AM–6PM", "Basavanagudi", R.mipmap.n_image));
+        places.add(new Place(getString(R.string.place_lalbagh), getString(R.string.timing_must_visit), getString(R.string.area_mavalli), R.mipmap.l_image));
+        places.add(new Place(getString(R.string.place_bangalore_palace), getString(R.string.timing_must_visit), getString(R.string.area_vasanth_nagar), R.mipmap.b_image));
+        places.add(new Place(getString(R.string.place_cubbon_park), getString(R.string.timing_must_visit), getString(R.string.area_sampangi_rama_nagar), R.mipmap.c_image));
+        places.add(new Place(getString(R.string.place_vitm), getString(R.string.timing_must_visit), getString(R.string.area_sampangi_rama_nagar), R.mipmap.v_image));
+        places.add(new Place(getString(R.string.place_iskcon), getString(R.string.timing_must_visit), getString(R.string.place_rajaji_nagar), R.mipmap.i_image));
+        places.add(new Place(getString(R.string.place_snow_city), getString(R.string.timing_must_visit), getString(R.string.area_jc_nagar), R.mipmap.s_display));
+        places.add(new Place(getString(R.string.place_bull_temple), getString(R.string.timing_must_visit), getString(R.string.area_basavanagudi), R.mipmap.b_image));
+        places.add(new Place(getString(R.string.place_st_basilica), getString(R.string.timing_must_visit), getString(R.string.area_shivaji_nagar), R.mipmap.s_display));
+        places.add(new Place(getString(R.string.place_bannerghatta_park), getString(R.string.timing_must_visit), getString(R.string.area_bannerghatta_road), R.mipmap.b_image));
+        places.add(new Place(getString(R.string.place_wonderla), getString(R.string.timing_must_visit), getString(R.string.area_mysore_road), R.mipmap.w_image));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(getContext(), places, R.color.category_must_visit);
 
@@ -48,7 +47,8 @@ public class MustVisitFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Place currentPlace = (Place) parent.getItemAtPosition(position);
-                Uri location = Uri.parse("geo:0,0?q=" + currentPlace.getName() + " " + currentPlace.getAddress());
+                Uri location = Uri.parse(String.format(getString(R.string.location_string),
+                        currentPlace.getName(), currentPlace.getAddress()));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
                 if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(mapIntent);

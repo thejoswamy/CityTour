@@ -29,15 +29,15 @@ public class RestaurantsFragment extends Fragment {
 
 
         ArrayList<Place> places = new ArrayList<>();
-        places.add(new Place("Vidyarthi Bhavan", "Open: 6:30–11:30AM, 2–8PM", "Basavanagudi", R.mipmap.v_image));
-        places.add(new Place("Nagarjuna Restaurant", "Open: 12–4PM, 7–11PM", "Indiranagar", R.mipmap.n_image));
-        places.add(new Place("Hotel Nalapaka", "Open: 7:30AM–3:30PM, 5–10:30PM", "Rajajinagar", R.mipmap.h_image));
-        places.add(new Place("The Fisherman's Wharf", "Open: 12–11PM", "Sarjapur Road", R.mipmap.t_image));
-        places.add(new Place("Empire Restaurant", "Open: 12PM–1AM", "Church Street, Bengaluru", R.mipmap.e_image));
-        places.add(new Place("Salt Mango Tree", "Open: 12:30–11PM", "Whitefield", R.mipmap.s_display));
-        places.add(new Place("Windmills Craftworks", "Open: 11:30AM-11:30PM", "Whitefield", R.mipmap.w_image));
-        places.add(new Place("Barbeque Nation", "Open: 12–3:30PM, 6:30–10:30PM", "Koramangala", R.mipmap.b_image));
-        places.add(new Place("TRUFFLES", "Open: 12–11PM", "Koramangala", R.mipmap.t_image));
+        places.add(new Place(getString(R.string.place_vidyarthi_bhavan), getString(R.string.timing_restaurant), getString(R.string.area_basavanagudi), R.mipmap.v_image));
+        places.add(new Place(getString(R.string.place_nagarjuna), getString(R.string.timing_restaurant), getString(R.string.area_indira_nagar), R.mipmap.n_image));
+        places.add(new Place(getString(R.string.place_nalapaka), getString(R.string.timing_restaurant), getString(R.string.area_rajajinagar), R.mipmap.h_image));
+        places.add(new Place(getString(R.string.place_fisherman_wharf), getString(R.string.timing_restaurant), getString(R.string.area_sarjapur_road), R.mipmap.t_image));
+        places.add(new Place(getString(R.string.place_empire_restaurant), getString(R.string.timing_restaurant), getString(R.string.area_church_street), R.mipmap.e_image));
+        places.add(new Place(getString(R.string.place_salt_mango_tree), getString(R.string.timing_restaurant), getString(R.string.area_whitefield), R.mipmap.s_display));
+        places.add(new Place(getString(R.string.place_windmills), getString(R.string.timing_restaurant), getString(R.string.area_whitefield), R.mipmap.w_image));
+        places.add(new Place(getString(R.string.place_barbeque), getString(R.string.timing_restaurant), getString(R.string.area_koramangala), R.mipmap.b_image));
+        places.add(new Place(getString(R.string.place_truffles), getString(R.string.timing_restaurant), getString(R.string.area_koramangala), R.mipmap.t_image));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(getContext(), places, R.color.category_restaurants);
 
@@ -47,7 +47,8 @@ public class RestaurantsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Place currentPlace = (Place) parent.getItemAtPosition(position);
-                Uri location = Uri.parse("geo:0,0?q=" + currentPlace.getName() + " " + currentPlace.getAddress());
+                Uri location = Uri.parse(String.format(getString(R.string.location_string),
+                        currentPlace.getName(), currentPlace.getAddress()));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
                 if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(mapIntent);

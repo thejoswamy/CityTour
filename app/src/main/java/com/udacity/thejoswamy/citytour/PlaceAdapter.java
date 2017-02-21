@@ -27,17 +27,16 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View currentView = convertView;
-        if (currentView == null) {
-            currentView = LayoutInflater.from(getContext()).
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).
                     inflate(R.layout.list_item_layout, parent, false);
         }
-        LinearLayout container = (LinearLayout) currentView.findViewById(R.id.text_container);
+        LinearLayout container = (LinearLayout) convertView.findViewById(R.id.text_container);
         container.setBackgroundResource(mBackgroundResourceId);
 
         Place currentPlace = getItem(position);
 
-        ImageView imageView = (ImageView) currentView.findViewById(R.id.image_view);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
         if (currentPlace.isImageAvailable()) {
             imageView.setImageResource(currentPlace.getImageResourceId());
             imageView.setVisibility(View.VISIBLE);
@@ -45,15 +44,15 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
             imageView.setVisibility(View.GONE);
         }
 
-        TextView nameTextView = (TextView) currentView.findViewById(R.id.name_text);
+        TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
         nameTextView.setText(currentPlace.getName());
 
-        TextView addressTextView = (TextView) currentView.findViewById(R.id.address_text);
+        TextView addressTextView = (TextView) convertView.findViewById(R.id.address_text);
         addressTextView.setText(currentPlace.getAddress());
 
-        TextView timingsTextView = (TextView) currentView.findViewById(R.id.timings_text);
+        TextView timingsTextView = (TextView) convertView.findViewById(R.id.timings_text);
         timingsTextView.setText(currentPlace.getTimings());
 
-        return currentView;
+        return convertView;
     }
 }

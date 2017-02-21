@@ -28,13 +28,13 @@ public class NightLifeFragment extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.places_list_layout, container, false);
 
         ArrayList<Place> places = new ArrayList<>();
-        places.add(new Place("Toit Brewpub", "Open: 12PM-11:30PM", "Indira Nagar II Stage"));
-        places.add(new Place("Murphy's Brewhouse", "Open: 11AM-11PM", "Domlur Layout"));
-        places.add(new Place("District 6", "Open: 12PM-12AM", "Malleshwaram, Rajajinagar"));
-        places.add(new Place("Big Brewsky", "Open: 12PM-1AM", "Sarjapur Road"));
-        places.add(new Place("Church Street Social", "Open: 9AM-12:30AM", "Church Street, Bengaluru"));
-        places.add(new Place("1522- The Pub", "Open: 11:30AM-11:30PM", "Koramangala"));
-        places.add(new Place("153 Biere Street", "Open: 12PM-11:30PM", "Whitefield"));
+        places.add(new Place(getString(R.string.place_toit), getString(R.string.timing_night_life), getString(R.string.area_indira_nagar_stage2), R.mipmap.image_toit));
+        places.add(new Place(getString(R.string.place_murphys), getString(R.string.timing_night_life), getString(R.string.area_domlur_layout), R.mipmap.image_murphys));
+        places.add(new Place(getString(R.string.place_district6), getString(R.string.timing_night_life), getString(R.string.area_rajajinagar), R.mipmap.image_district6));
+        places.add(new Place(getString(R.string.place_bigbrewsky), getString(R.string.timing_night_life), getString(R.string.area_sarjapur_road), R.mipmap.image_bigbrewsky));
+        places.add(new Place(getString(R.string.place_social), getString(R.string.timing_night_life), getString(R.string.area_church_street), R.mipmap.image_church_street));
+        places.add(new Place(getString(R.string.place_1522), getString(R.string.timing_night_life), getString(R.string.area_koramangala), R.mipmap.image_1522));
+        places.add(new Place(getString(R.string.place_biere_street), getString(R.string.timing_night_life), getString(R.string.area_whitefield), R.mipmap.image_bierre_street));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(getContext(), places, R.color.category_night_life);
         ListView listView = (ListView) viewGroup.findViewById(R.id.list);
@@ -43,7 +43,8 @@ public class NightLifeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Place currentPlace = (Place) parent.getItemAtPosition(position);
-                Uri location = Uri.parse("geo:0,0?q=" + currentPlace.getName() + " " + currentPlace.getAddress());
+                Uri location = Uri.parse(String.format(getString(R.string.location_string),
+                        currentPlace.getName(), currentPlace.getAddress()));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
                 if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(mapIntent);

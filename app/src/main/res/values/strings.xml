@@ -8,4 +8,65 @@
 
     <string name="nav_header_string">BANGALORE</string>
 
+    <string name="location_string" translatable="false">geo:0,0?q=%s %s</string>
+
+    <string name="place_lalbagh">Lalbagh Botanical Garden</string>
+    <string name="timing_must_visit">Open: 6AM–6PM</string>
+    <string name="area_mavalli">Mavalli, Bengaluru</string>
+    <string name="place_bangalore_palace">Bangalore Palace</string>
+    <string name="area_vasanth_nagar">Vasanth Nagar, Bengaluru</string>
+    <string name="area_sampangi_rama_nagar">Sampangi Rama Nagar, Bengaluru</string>
+    <string name="place_cubbon_park">Cubbon Park</string>
+    <string name="place_vitm"><![CDATA[Visvesvaraya Industrial & Technological Museum]]></string>
+    <string name="place_rajaji_nagar">Rajaji Nagar, Bengaluru</string>
+    <string name="place_iskcon">ISKCON Bangalore</string>
+    <string name="place_snow_city">Snow City</string>
+    <string name="area_jc_nagar">J C Nagar, Bengaluru</string>
+    <string name="area_basavanagudi">Basavanagudi</string>
+    <string name="place_bull_temple">Bull Temple</string>
+    <string name="place_st_basilica">St. Mary\'s Basilica</string>
+    <string name="area_shivaji_nagar">Shivaji Nagar</string>
+    <string name="area_bannerghatta_road">Bannerghatta Road</string>
+    <string name="place_bannerghatta_park">Bannerghatta National Park</string>
+    <string name="area_mysore_road">Mysore Road, Bangalore</string>
+    <string name="place_wonderla">Wonderla</string>
+    <string name="timing_night_life">Open: 12PM-1AM</string>
+    <string name="place_toit">Toit Brewpub</string>
+    <string name="place_murphys">Murphy\'s Brewhouse</string>
+    <string name="place_district6">District 6</string>
+    <string name="place_bigbrewsky">Big Brewsky</string>
+    <string name="place_social">Church Street Social</string>
+    <string name="place_1522">1522- The Pub</string>
+    <string name="place_biere_street">153 Biere Street</string>
+    <string name="area_indira_nagar_stage2">Indira Nagar II Stage</string>
+    <string name="area_indira_nagar">Indira Nagar</string>
+    <string name="area_domlur_layout">Domlur Layout</string>
+    <string name="area_rajajinagar">Rajajinagar</string>
+    <string name="area_sarjapur_road">Sarjapur Road</string>
+    <string name="area_church_street">Church Street, Bengaluru</string>
+    <string name="area_koramangala">Koramangala</string>
+    <string name="area_whitefield">Whitefield</string>
+    <string name="place_vidyarthi_bhavan">Vidyarthi Bhavan</string>
+    <string name="place_nagarjuna">Nagarjuna Restaurant</string>
+    <string name="place_nalapaka">Hotel Nalapaka</string>
+    <string name="place_fisherman_wharf">The Fisherman\'s Wharf</string>
+    <string name="place_empire_restaurant">Empire Restaurant</string>
+    <string name="place_salt_mango_tree">Salt Mango Tree</string>
+    <string name="place_windmills">Windmills Craftworks</string>
+    <string name="place_barbeque">Barbeque Nation</string>
+    <string name="place_truffles">TRUFFLES</string>
+    <string name="timing_restaurant">Open: 12–3:30PM, 6:30–10:30PM</string>
+    <string name="place_phoenix">Phoenix Marketcity</string>
+    <string name="place_garuda">Garuda Mall</string>
+    <string name="place_orion">Orion Mall</string>
+    <string name="place_gopalan">Gopalan Innovation Mall</string>
+    <string name="place_forum_value">The Forum Value Mall</string>
+    <string name="place_inorbit">Inorbit Mall</string>
+    <string name="place_oasis">The Oasis Centre</string>
+    <string name="place_the_forum">The Forum</string>
+    <string name="timing_shopping">Open: 10AM–11PM</string>
+    <string name="area_jp_nagar">JP Nagar</string>
+    <string name="area_ashok_nagar">Ashok Nagar, Bengaluru</string>
+    <string name="area_mahadevapura">Mahadevpura, Bengaluru</string>
+
 </resources>

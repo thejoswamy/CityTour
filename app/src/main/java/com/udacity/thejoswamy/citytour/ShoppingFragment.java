@@ -28,14 +28,14 @@ public class ShoppingFragment extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.places_list_layout, container, false);
 
         ArrayList<Place> places = new ArrayList<>();
-        places.add(new Place("Phoenix Marketcity", "Open: 10:30AM–11PM, 2–8PM", "Mahadevpura, Bengaluru"));
-        places.add(new Place("Garuda Mall", "Open: 9AM–10PM", "Ashok Nagar, Bengaluru"));
-        places.add(new Place("Orion Mall", "Open: 10AM–10:45PM", "Rajajinagar"));
-        places.add(new Place("Gopalan Innovation Mall", "Open: 11AM–11PM", "JP Nagar"));
-        places.add(new Place("The Forum Value Mall", "Open: 9:30AM–10:30PM", "Whitefield"));
-        places.add(new Place("Inorbit Mall", "Open: 11AM–9:30PM", "Whitefield"));
-        places.add(new Place("The Oasis Centre", "Open: 8AM–10PM", "Koramangala"));
-        places.add(new Place("The Forum", "Open: 10AM–11PM", "Koramangala"));
+        places.add(new Place(getString(R.string.place_phoenix), getString(R.string.timing_shopping), getString(R.string.area_mahadevapura)));
+        places.add(new Place(getString(R.string.place_garuda), getString(R.string.timing_shopping), getString(R.string.area_ashok_nagar)));
+        places.add(new Place(getString(R.string.place_orion), getString(R.string.timing_shopping), getString(R.string.area_rajajinagar)));
+        places.add(new Place(getString(R.string.place_gopalan), getString(R.string.timing_shopping), getString(R.string.area_jp_nagar)));
+        places.add(new Place(getString(R.string.place_forum_value), getString(R.string.timing_shopping), getString(R.string.area_whitefield)));
+        places.add(new Place(getString(R.string.place_inorbit), getString(R.string.timing_shopping), getString(R.string.area_whitefield)));
+        places.add(new Place(getString(R.string.place_oasis), getString(R.string.timing_shopping), getString(R.string.area_koramangala)));
+        places.add(new Place(getString(R.string.place_the_forum), getString(R.string.timing_shopping), getString(R.string.area_koramangala)));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(getContext(), places, R.color.category_shopping);
         ListView listView = (ListView) viewGroup.findViewById(R.id.list);
@@ -44,7 +44,8 @@ public class ShoppingFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Place currentPlace = (Place) parent.getItemAtPosition(position);
-                Uri location = Uri.parse("geo:0,0?q=" + currentPlace.getName() + " " + currentPlace.getAddress());
+                Uri location = Uri.parse(String.format(getString(R.string.location_string),
+                        currentPlace.getName(), currentPlace.getAddress()));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
                 if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(mapIntent);
