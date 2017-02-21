@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_must_visit"
+            android:icon="@drawable/ic_local_activity"
+            android:title="Must Visit" />
+        <item
+            android:id="@+id/nav_local_malls"
+            android:icon="@drawable/ic_local_mall"
+            android:title="Shopping" />
+        <item
+            android:id="@+id/nav_local_dining"
+            android:icon="@drawable/ic_local_dining"
+            android:title="Restaurants" />
+        <item
+            android:id="@+id/nav_local_bar"
+            android:icon="@drawable/ic_local_bar"
+            android:title="Night Life" />
+    </group>
+
+</menu>
